@@ -29,7 +29,6 @@ window.stations = [];
 
 // Función para crear el div de estación
 function createStationDiv() {
-    // Crear el div que contendrá la estación
     const stationDiv = document.createElement('div');
 
     // Crear los elementos internos
@@ -86,7 +85,6 @@ function createStationDiv() {
 
 // Función para inicializar la estación al cargar la página
 function initializeStation() {
-    // Obtener referencias al contenedor de estaciones
     const stationContainer = document.getElementById('stations');
 
     // Crear el primer stationDiv
@@ -98,10 +96,8 @@ function initializeStation() {
         ipDirElement,
     } = createStationDiv();
 
-    // Agregar el stationDiv al contenedor
     stationContainer.appendChild(stationDiv);
 
-    // Crear una nueva instancia de Station
     const initialStation = new Station(
         stationTypeSelect.value,
         stationIDInput.value,
@@ -154,10 +150,8 @@ function updateBaseIP(stationTypeSelect, ipDirElement) {
 
 // Función para agregar una nueva estación
 function addStation() {
-    // Obtener referencias al contenedor de estaciones
     const stationContainer = document.getElementById('stations');
 
-    // Crear un nuevo stationDiv
     const {
         stationDiv,
         stationTypeSelect,
@@ -166,10 +160,8 @@ function addStation() {
         ipDirElement,
     } = createStationDiv();
 
-    // Agregar el stationDiv al contenedor
     stationContainer.appendChild(stationDiv);
 
-    // Crear una nueva instancia de Station
     const newStation = new Station(
         stationTypeSelect.value,
         stationIDInput.value,

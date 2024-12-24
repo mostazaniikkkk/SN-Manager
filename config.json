@@ -1,6 +1,12 @@
 {
-    "username": "",
-    "password": "",
-    "full_name": "",
-    "debug": 1
+    "service-now": {
+        "username": "",
+        "password": "",
+        "full_name": "",
+        "debug": 1
+    },
+    "internal_mail": {
+        "email": "",
+        "password": ""
+    }
 }

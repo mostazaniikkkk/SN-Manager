@@ -4,9 +4,13 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/ticket')
 def home():
     return render_template('Loader/index.html')
+
+@app.route('/mail')
+def mail():
+    return render_template('Mail activation/index.html')
 
 @app.route('/excel_data')
 def excel_data():
