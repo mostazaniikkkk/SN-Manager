@@ -17,3 +17,5 @@ class RITM(Ticket):
 
         self._driver.get(f'{entel_url}/sp?id=sc_category&')
         time.sleep(10)
+
+        #Media paja hacer el procedimiento altiro xD

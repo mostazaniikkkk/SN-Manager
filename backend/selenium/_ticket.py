@@ -1,16 +1,9 @@
-from abc import ABC, abstractmethod
-import json, os, time
-from selenium import webdriver
+from abc import abstractmethod
+from _selenium_core import Core
 
-print(os.getcwd())
-with open("config.json", "r") as file:
-    config_data = json.load(file)
-
-entel_url = f"https://{'entelqa' if config_data["service-now"]["debug"] == 1 else 'entel'}.service-now.com/"
-
-class Ticket(ABC):
-    def __init__(self, body, category, model, action, client, contact, type):
-        self._driver = self._load()
+class Ticket(Core):
+    def __init__(self, body, category, model, action, client, contact, type, branch, group, resume, description):
+        super().__init__()
 
         self.body = body
         self.category = category
@@ -19,36 +12,24 @@ class Ticket(ABC):
         self.client = client
         self.contact = contact
         self.type = type
+        self.branch = branch
+        self.group = group
+        self.resume = resume
+        self.description = description
+
         self.ticket_number = self.upload_ticket()
     
     @abstractmethod
-    def upload_ticket(self):
-        self._load()
+    def upload_ticket(self): pass
 
-        time.sleep(5)
+    def _get_generic_containers(self, type):
+        self.official_container = self.element(f"sys_display.{type}.caller_id")  # Nombre de funcionario
+        self.branch_container = self.element(f"sys_display.{type}.location")  # Sucursal
+        self.group_container = self.element(f"sys_display.{type}.assignment_group")  # Mesa encargada
+        self.user_container = self.element(f"sys_display.{type}.assigned_to")  # Nombre de usuario
+        self.state_container = self.element(f"label.{type}.state")  # Estado del ticket
+        self.substate_container = self.element(f"label.{type}.u_std_substate")  # Motivo del estado
+        self.resume_container = self.element(f"{type}.short_description")  # Resumen
+        self.description_container = self.element(f"{type}.description")  # Descripción
 
-        current_url = self._driver.current_url
-        if current_url == entel_url:
-            self._login()
-
-    def _load(self):
-        gecko_path = "geckodriver.exe"
-        options = webdriver.FirefoxOptions()
-
-        driver = webdriver.Firefox(executable_path=gecko_path, options=options)
-        driver.get(entel_url)
-
-        return driver
-    
-    def _login(self):
-        username = self._driver.find_element_by_id("user_name")
-        password = self._driver.find_element_by_id("user_password")
-
-        username.send_keys(f'{config_data["service-now"]["username"]}@entelcc.cl')
-        password.send_keys(config_data["service-now"]["password"])
-
-        button = self._driver.find_element_by_name("sysverb_login")
-        button.click()
-
-if __name__ == "__main__":
-    print(entel_url)
+        self.save_button = self.element("wa_dfct_insert")  # Botón de guardar
