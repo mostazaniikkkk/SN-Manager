@@ -2,7 +2,7 @@ import time
 from _ticket import Ticket, entel_url, config_data
 
 class RITM(Ticket):
-    def __init__(self, body, category, model, action, client, contact, type):
+    def __init__(self, body, name, category, model, action, client, contact, type):
         super().__init__(body, category, model, action, client, contact, type)
 
         self.catalogue = {
@@ -15,7 +15,23 @@ class RITM(Ticket):
     def upload_ticket(self):
         super().upload_ticket()
 
-        self._driver.get(f'{entel_url}/sp?id=sc_category&')
+        fixed_category = self.category.lower().replace(' ', '_')
+        self._driver.get(f'{entel_url}/sp?id=sc_category&{catalogue[fixed_category]}')
         time.sleep(10)
 
-        #Media paja hacer el procedimiento altiro xD
+
+        print("Ticket placeholder creado")  # Esto es solo un placeholder
+
+if __name__ == "__main__":
+    # Crea un RITM con valores de placeholder
+    ritm = RITM(
+        body="Cuerpo del ticket",
+        category="Negocio Cliente",
+        model="Módulo Entrega",
+        action="Activación Documentos",
+        client="Daniel Paco",
+        contact="Contacto",
+        type="Tipo"
+        )
+
+    ritm.upload_ticket()

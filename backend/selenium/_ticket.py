@@ -2,7 +2,7 @@ from abc import abstractmethod
 from _selenium_core import Core
 
 class Ticket(Core):
-    def __init__(self, body, category, model, action, client, contact, type, branch, group, resume, description):
+    def __init__(self, body, name, category, model, action, client, contact, type, branch, group, resume, description):
         super().__init__()
 
         self.body = body
