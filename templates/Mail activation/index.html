@@ -14,7 +14,10 @@
             </div>
             <div class="col-12">
                 <h5>Datos a validar:</h5>
+                <textarea name="header" id="header" style="width: 100%; height: 50px;" placeholder="(Opcional) Cabecera del ticket para datos adicionales"></textarea>
                 <textarea name="data" id="data" style="width: 100%; height: 200px;" placeholder="Ingrese los valores de cedula a activar"></textarea>
+                <textarea name="signature" id="signature" style="width: 100%; height: 100px;" placeholder="(Opcional) Firma del funcionario."></textarea>
+
             </div>
             <div class="col-6">
                 <h5>Numero de ticket:</h5>
@@ -24,11 +27,17 @@
                 <h5>Ticket Externo-proveedor:</h5>
                 <input type="text" name="extern" id="extern" placeholder="(Opcional) Ingrese el numero de ticket externo">
             </div>
+            <div class="col-12">
+                <h6 id="counter"></h6>
+            </div>
             <div class="col-12" style="margin-top: 10px;">
-                <button>Subir Ticket a Service-Now</button>
+                <button hidden>Subir Ticket a Service-Now</button>
+                <button onclick="copyToClipboard('Activar - Activacion Documento')">Copiar Titulo</button>
                 <button onclick="copyToClipboard(generateEmail())">Generar cuerpo de ticket</button>
                 <button onclick="copyToClipboard(getInternalMail())">Generar correo interno</button>
                 <button onclick="copyToClipboard(getClientMail())">Generar respuesta</button>
+                <button onclick="clearTicket()">Limpiar Ticket</button>
+                <button onclick="clearPage()">Limpiar plantilla</button>
             </div>
         </div>
     </div>

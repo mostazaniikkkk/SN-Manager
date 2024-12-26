@@ -25,16 +25,17 @@ Saludos Cordiales.`
 }
 
 function generateEmail() {
-    ticket = document.getElementById("data").value;
-    return `ESTIMADOS,
+    const header = document.getElementById('header').value.toUpperCase();   
+    let signature = document.getElementById('signature').value.toUpperCase();
+    signature = signature !== "" ? `, \n${signature}` : '.' 
+
+    return `${header !== "" ? header + '\n\n' : ""}ESTIMADOS,
 SOLICITO ACTIVAR LOS SIGUIENTES DOCUMENTOS. ADJUNTO ARCHIVO CON DATOS DE LOS DOCUMENTOS DE IDENTIDAD. 
 
-${ticket.toUpperCase()}
+${document.getElementById("data").value.toUpperCase()}
 
-DE ANTEMANO QUEDO MUY AGRADECIDO POR LA GESTIÓN. 
-SALUDOS CORDIALES,
-
-POR FAVOR ACTIVAR DOCUMENTOS SOLICITADOS.`
+POR FAVOR ACTIVAR DOCUMENTOS SOLICITADOS. DE ANTEMANO QUEDO MUY AGRADECIDO POR LA GESTIÓN. 
+SALUDOS CORDIALES${signature}`
 }
 
 function copyToClipboard(text) {
@@ -57,3 +58,37 @@ function copyToClipboard(text) {
   
     console.log('Texto copiado al portapapeles:', text);
   }
+
+function clearPage(){
+    document.getElementById("header").value = "";
+    document.getElementById("signature").value = "";
+    clearTicket();
+}
+
+function clearTicket(){
+    document.getElementById("extern").value = "";
+    document.getElementById("ticket").value = "";
+    document.getElementById("data").value = "";
+}
+
+// Muestra el contador de elementos del cuerpo
+document.addEventListener('DOMContentLoaded', (event) => {
+    var ticketBox = document.getElementById('data');
+    ticketBox.addEventListener('input', updateCount);
+
+    var headerBox = document.getElementById('header');
+    headerBox.addEventListener('input', updateCount);
+
+    var sigBox = document.getElementById('signature');
+    sigBox.addEventListener('input', updateCount);
+});
+
+function updateCount() {
+    var ticketLenght = document.getElementById('data').value.length;
+    var headerLenght = document.getElementById('header').value.length;
+    var sigLenght = document.getElementById('signature').value.length;
+
+    var tickets = Math.ceil(ticketLenght / 4000);
+    document.getElementById('counter').textContent = `${(228 * tickets) + headerLenght + ticketLenght + sigLenght} Caracteres usados, se requiere${tickets  !== 1 ? 'n' : ''} ${tickets} ticket${tickets  !== 1 ? 's' : ''} para subir todo.`;
+}
+
