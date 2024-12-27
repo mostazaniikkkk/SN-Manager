@@ -1,4 +1,4 @@
-# Service Now Manager
+# SRCEI Service Now Manager
 
 ¡Bienvenido al gestor de tickets! Este proyecto ha sido creado con la intención de agilizar y simplificar la generación y gestión de tickets de soporte, siguiendo el formato exigido por Idemia.
 
