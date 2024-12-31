@@ -210,7 +210,7 @@ function Show-Menu {
     Write-Host "Menú Principal - CheckIDTray" -ForegroundColor Cyan
     Write-Host "1: Reiniciar servicios de CheckIDTray" -ForegroundColor Yellow
     Write-Host "2: Reiniciar un servicio específico de EVS" -ForegroundColor Yellow
-    Write-Host "3: Configurar dispositivo (Devices.config)" -ForegroundColor Yellow
+    Write-Host "3: Configurar impresora o escaner" -ForegroundColor Yellow
     Write-Host "4: Renombrar impresora" -ForegroundColor Yellow
     Write-Host "5: Reiniciar todos los servicios de EVS" -ForegroundColor Yellow
     Write-Host "6: Salir" -ForegroundColor Yellow
@@ -227,7 +227,18 @@ function Show-EVS-Submenu {
     Write-Host "3: Reiniciar EVS_SUPERVISOR" -ForegroundColor Yellow
     Write-Host "4: Volver al menú principal" -ForegroundColor Yellow
     Write-Host ""
-    Write-Host "Seleccione una opción (ESC para volver): " -NoNewline # Mensaje que indica que ESC vuelve al menú anterior
+    Write-Host "Seleccione una opción (ESC para volver): " -NoNewline
+}
+
+# Función para mostrar el submenú de configuración de dispositivos
+function Show-Devices-Submenu {
+    Clear-Host
+    Write-Host "Menú Configuración de Dispositivos" -ForegroundColor Cyan
+    Write-Host "1: Configurar impresora" -ForegroundColor Yellow
+    Write-Host "2: Configurar escáner" -ForegroundColor Yellow
+    Write-Host "3: Volver al menú principal" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "Seleccione una opción (ESC para volver): " -NoNewline
 }
 
 # Ciclo principal del menú
@@ -282,9 +293,43 @@ while ($true) {
             }
         }
         "3" {
-            $device = Read-Host "Ingrese el nombre del dispositivo a configurar"
-            $value = Read-Host "Ingrese el nuevo valor"
-            $checkid.SetConfigDevice($device, $value)
+            # Submenú para configurar dispositivos
+            while ($true) {
+                Show-Devices-Submenu
+                $subOpcion = ''
+                while ($subOpcion -eq '') {
+                    $key = [Console]::ReadKey($true)
+                    if ($key.Key -eq "Escape") {
+                        $subOpcion = "3" # Volver al menú principal
+                    } elseif ($key.KeyChar) {
+                        $subOpcion = $key.KeyChar
+                    }
+                }
+
+                switch ($subOpcion) {
+                    "1" {
+                        $printer = Read-Host "Ingrese el nombre de la impresora"
+                        $checkid.SetConfigDevice("PrinterDev", $printer)
+                        break
+                    }
+                    "2" {
+                        $scanner = Read-Host "Ingrese el nombre del escáner"
+                        $checkid.SetConfigDevice("ScannerDocDev", $scanner)
+                        break
+                    }
+                    "3" {
+                        break # Salir del submenú
+                    }
+                    default {
+                        Write-Host "Opción no válida. Intente de nuevo."
+                        Read-Host "Presione ENTER para continuar"
+                    }
+                }
+
+                if ($subOpcion -eq "3") {
+                    break # Salir del bucle del submenú
+                }
+            }
         }
         "4" {
             $printer = Read-Host "Ingrese el nombre de la impresora a renombrar"
