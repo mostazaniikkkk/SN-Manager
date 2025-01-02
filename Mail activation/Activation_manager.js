@@ -32,7 +32,7 @@ function generateEmail() {
     return `${header !== "" ? header + '\n\n' : ""}ESTIMADOS,
 SOLICITO ACTIVAR LOS SIGUIENTES DOCUMENTOS. ADJUNTO ARCHIVO CON DATOS DE LOS DOCUMENTOS DE IDENTIDAD. 
 
-${document.getElementById("data").value.toUpperCase()}
+${document.getElementById("data").value.replace(/(\r?\n){2,}/g, '\n').toUpperCase()}
 
 SALUDOS CORDIALES${signature}
 
