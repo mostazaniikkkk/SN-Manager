@@ -1,6 +1,6 @@
 // copy_to_clipboard.js (Independiente)
 
-export function copyToClipboard(text) {
+function copyToClipboard(text) {
     const tempElement = document.createElement('textarea');
     tempElement.value = text;
     document.body.appendChild(tempElement);
