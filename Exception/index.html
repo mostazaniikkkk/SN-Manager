@@ -24,15 +24,16 @@
                     <option value="forbidden">No autorizado</option>
                 </select>
             </div>
-            <div class="col-12">
+            <div class="col-12" id="contact-container" hidden>
                 <h5>Contacto</h5>
-                <textarea name="" id="contact-data" placeholder="Colocar datos de contacto para operaciones" style="width: 100%; height: 200px;"></textarea>
+                <textarea name="" id="contact-data" placeholder="(Opcional) Colocar datos de contacto con oficina de operaciones." style="width: 100%; height: 200px;"></textarea>
             </div>
             <div class="col-12">
-                <button>Copiar correo</button>
-                <button>Limp</button>
+                <button onclick="getMail()">Copiar correo</button>
+                <button onclick="clean()">Limpiar plantilla</button>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
