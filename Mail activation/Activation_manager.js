@@ -39,27 +39,6 @@ SALUDOS CORDIALES${signature}
 POR FAVOR ACTIVAR DOCUMENTOS SOLICITADOS. DE ANTEMANO QUEDO MUY AGRADECIDO POR LA GESTIÓN. `
 }
 
-function copyToClipboard(text) {
-    // Crear un elemento de texto temporal
-    const tempElement = document.createElement('textarea');
-    tempElement.value = text;
-  
-    // Añadir el elemento al documento
-    document.body.appendChild(tempElement);
-  
-    // Seleccionar el texto
-    tempElement.select();
-    tempElement.setSelectionRange(0, 99999); // Para dispositivos móviles
-  
-    // Copiar el texto al portapapeles
-    document.execCommand('copy');
-  
-    // Eliminar el elemento temporal
-    document.body.removeChild(tempElement);
-  
-    console.log('Texto copiado al portapapeles:', text);
-  }
-
 function clearPage(){
     document.getElementById("header").value = "";
     document.getElementById("signature").value = "";
@@ -92,4 +71,3 @@ function updateCount() {
     var tickets = Math.ceil(ticketLenght / 4000);
     document.getElementById('counter').textContent = `${(228 * tickets) + headerLenght + ticketLenght + sigLenght} Caracteres usados, se requiere${tickets  !== 1 ? 'n' : ''} ${tickets} ticket${tickets  !== 1 ? 's' : ''} para subir todo.`;
 }
-

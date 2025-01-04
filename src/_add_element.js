@@ -20,5 +20,3 @@ function addElement(id, title, elementHTML, func = null) {
         console.error(`Elemento con ID "${id}" no encontrado.`);
     }
 }
-
-export default addElement;

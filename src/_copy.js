@@ -18,5 +18,3 @@ function copyToClipboard(text) {
   
     console.log('Texto copiado al portapapeles:', text);
   }
-
-export default copyToClipboard;
