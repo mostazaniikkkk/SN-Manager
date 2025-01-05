@@ -1,5 +1,5 @@
 function addElement(id, title, elementHTML, func = null) {
-    const titleHTML = `<h5>${title.toUpperCase()}:</h5>`;
+    const titleHTML = `<h5>${capitalize(title)}:</h5>`;
     const parentElement = document.getElementById(`${id}-container`);
 
     if (parentElement) {

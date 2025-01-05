@@ -37,13 +37,14 @@
                 <button onclick="copyToClipboard(generateEmail())">Generar cuerpo de ticket</button>
                 <button onclick="copyToClipboard(getInternalMail())">Generar correo interno</button>
                 <button onclick="copyToClipboard(getClientMail())">Generar respuesta</button>
-                <button onclick="clearTicket()">Limpiar Ticket</button>
-                <button onclick="clearPage()">Limpiar plantilla</button>
+                <button onclick="clearElements(ticket)">Limpiar Ticket</button>
+                <button onclick="clearElements(page)">Limpiar plantilla</button>
             </div>
         </div>
     </div>
 
     <script src="Activation_manager.js"></script>
     <script src="../src/_copy.js"></script>
+    <script src="../src/_clear.js"></script>
 </body>
 </html>

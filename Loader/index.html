@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Ticket Template</title>
+    <title>Tickets - SN Manager</title>
     <link rel="icon" href="https://mostazaniikkkk.github.io/SN-Manager/Delete%20CheckID.png" type="image/x-icon">
 </head>
 <body>
@@ -12,90 +12,23 @@
         <div class="row">
             <div class="col-12"><h3>Ticket:</h3></div>
 
-            <div class="col-6">
-                <h5>Estacion:</h5>
-                <div id="stations"></div>
-                <button onclick="addStation()">+</button>
-                <button onclick="removeStation()">-</button>
-            </div>
+            <div class="col-6" id="station-manager-container"></div>
 
-            <div class="col-6">
-                <h5>Linea de contacto:</h5>
-                <div>
-                    <select name="phone.id" id="phone-id">
-                        <option value="+569">+569</option>
-                        <option value="+569">+562</option>
-                        <option value="+">+</option>
-                    </select>
-                    <input type="phone" name="phone" placeholder="Numero de linea">
-                    <button>Copiar</button>
-                </div>
-                <button>+</button>
-                <button>-</button>
-            </div>
+            <div class="col-6" id="employee-name-container"></div>
+            <div class="col-6" id="employee-username-container"></div>
+            <div class="col-6" id="employee-email-container"></div>
+            <div class="col-6" id="employee-phone-container"></div>
 
-            <div class="col-6">
-                <h5>Nombre del funcionario:</h5>
-                <input type="text" name="nombre"  id="name" placeholder="Nombre del funcionario">
-                <button>Validar</button>
-            </div>
+            <div class="col-6" id="branch-container"></div>
 
-            <div class="col-6">
-                <h5>Nombre de usuario:</h5>
-                <input type="text" name="name" id="user" placeholder="Nombre de usuario">
-            </div>
-
-            <div class="col-6">
-                <h5>Email:</h5>
-                <input type="text" placeholder="correo electronico del funcionario"> @
-                <select name="email" id="email">
-                </select>
-                <button>Copiar</button>
-            </div>
-
-            <div class="col-6">
-                <h5>Sucursal:</h5>
-                <select name="branch" id="branch">
-                </select>
-                <input type="text" name="branch" placeholder="Nombre sucursal">
-                <button>Validar</button>
-                <input type="text" name="branch_dir" placeholder="(Opcional) Direccion">
-                <input type="text" name="branch_dir" placeholder="(Opcional) Horario atencion">
-            </div>
-
-            <div class="col-6">
-                <h5>Mantencion preventiva:</h5>
-                <select name="mantain" id="mantain">
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-
-            <div class="col-6" id="remote-container">
-            </div>
-
-
-            <div class="col-6">
-                <h5>Grupo Resolutor:</h5>
-                <select name="resolutor" id="resolutor">
-                </select>
-                <select name="action" id="action">
-                </select>
-            </div>
-
-            <div class="col-6">
-                <h5>Aplicacion:</h5>
-                <select name="tax" id="tax">
-                </select>
-            </div>
+            <div class="col-6" id="prevent-container"></div>
+            <div class="col-6" id="remote-container"></div>
+            <div class="col-6" id="group-container"></div>
+            <div class="col-6" id="app-container"></div>
+            <div class="col-12" id="problem-container"></div>
 
             <div class="col-12">
-                <h5>Problema:</h5>
-                <input type="text" name="problem" id="problem" placeholder="Problema" style="width: 100%;">
-                <input type="text" name="tests" id="tests" placeholder="Prueba de mesa" style="width: 100%;">
-            </div>
-
-            <div class="col-12">
+                <p id="warning" hidden>Se recomienda instalar aplicativo para gestionar tickets de forma mas agil.</p>
                 <button>Adjuntar archivo</button>
                 <button onclick="copyToClipboard(get_ticket())">Copiar Ticket</button>
                 <button onclick="copyToClipboard(get_ticket_title())">Copiar titulo</button>
@@ -104,8 +37,23 @@
             </div>
         </div>
     </div>
-    
-    <script src="src/_add_element.js"></script>
-    <script src="src/add_remote.js"></script>
+
+    <script src="../src/_copy.js"></script>
+    <script src="../src/_webtool_controller.js"></script>
+    <script src="../src/_capitalize.js"></script>
+    <script src="../src/_add_element.js"></script>
+    <script src="../src/_autoincremental.js"></script>
+
+    <script src="../src/generic/add_remote.js"></script>
+    <script src="../src/generic/add_prevent.js"></script>
+    <script src="../src/generic/add_problem.js"></script>
+    <script src="../src/generic/add_app.js"></script>
+    <script src="../src/generic/add_group.js"></script>
+    <script src="../src/generic/add_branch.js"></script>
+    <script src="../src/generic/add_station.js"></script>
+    <script src="../src/generic/add_employee.js"></script>
+
+    <script src="../src/generic/_add_phone.js"></script>
+    <script src="../src/generic/_add_email.js"></script>
 </body>
 </html>

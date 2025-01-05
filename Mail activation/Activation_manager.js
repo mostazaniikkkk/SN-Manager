@@ -1,5 +1,5 @@
 function getClientMail(){
-    ticket = document.getElementById("ticket").value;
+    const ticket = document.getElementById("ticket").value;
     
     return `Buenos días estimado, 
 Según documento adjunto, se genera número de ticket ${ticket}, por favor revisar.
@@ -8,9 +8,9 @@ Saludos cordiales.`;
 }
 
 function getInternalMail(){
-    ext_id = document.getElementById("extern").value;
+    let ext_id = document.getElementById("extern").value;
     if(ext_id === ""){
-        ticket = document.getElementById("ticket").value;
+        let ticket = document.getElementById("ticket").value;
 
         return `Buenos días estimada,
 De momento el número de servicio no pudo ser generado, adjunto número de ticket ${ticket}.
@@ -39,17 +39,8 @@ SALUDOS CORDIALES${signature}
 POR FAVOR ACTIVAR DOCUMENTOS SOLICITADOS. DE ANTEMANO QUEDO MUY AGRADECIDO POR LA GESTIÓN. `
 }
 
-function clearPage(){
-    document.getElementById("header").value = "";
-    document.getElementById("signature").value = "";
-    clearTicket();
-}
-
-function clearTicket(){
-    document.getElementById("extern").value = "";
-    document.getElementById("ticket").value = "";
-    document.getElementById("data").value = "";
-}
+const ticket = ["extern", "ticket", "data"];
+const page = ["header", "signature"].concat(ticket);
 
 // Muestra el contador de elementos del cuerpo
 document.addEventListener('DOMContentLoaded', (event) => {
