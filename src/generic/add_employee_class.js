@@ -36,5 +36,5 @@ class Employee{
 
 // Inicializar la clase después de que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-    new Employee();
+    let employee = new Employee();
   });

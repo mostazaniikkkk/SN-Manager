@@ -115,5 +115,5 @@ class BranchManager {
 
 // Inicializar la clase después de que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-  new BranchManager();
+  let branch = new BranchManager();
 });

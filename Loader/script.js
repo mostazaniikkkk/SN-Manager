@@ -24,18 +24,6 @@ function get_ticket() {
         }
     }
 
-    // Función para obtener el base IP según el tipo de estación
-    function getBaseIP(stationType) {
-        let baseIP = '164.96.'; // Valor por defecto
-
-        if (stationType === 'TER' || stationType === 'CON') {
-            baseIP = '10.90.';
-        }
-
-        return baseIP;
-    }
-
-    const problem = document.getElementById("problem").value;
     const oficial_name = document.getElementById("name").value;
     const oficial_user = document.getElementById("user").value;
 
@@ -43,56 +31,36 @@ function get_ticket() {
     const mantain = document.getElementById("mantain").value;
     const remote = document.getElementById("remote").value;
 
+    const problem = document.getElementById("problem").value;
+
     // Pruebas de la mesa
     const tests = document.getElementById("tests").value;
     const group = document.getElementById("resolutor").value;
     const action = document.getElementById("action").value;
 
-    // Capturar la información de las estaciones
-    let stationTypes = [];
-    let machineNames = [];
-    let ips = [];
+    let station_type = [];
+    let station_list = [];
 
-    if (window.stations && window.stations.length > 0) {
-        window.stations.forEach((stationWrapper) => {
-            const stationObj = stationWrapper.stationObj;
-            const stationTypeRaw = stationObj.type;
-            const stationIDRaw = stationObj.id;
-            const stationIPInputRaw = stationObj.ip; // Los últimos octetos de la IP ingresados por el usuario
+    let _count = 0;
+    stations.stations.forEach(element => {
+        if(element.length === 4){
+            station_type.append("sin informacion");
+        } else {
+            station_list.append(element);
+            station_type.append(stations.station_types[_count]);
+        }
+        _count++;
+    });
 
-            const stationType = filter_data(stationTypeRaw);
-            const stationID = filter_data(stationIDRaw);
+    let ip_list = [];
+    station.stations.forEach(element => {
+        if(element === "164.96" || element === "10.90" ){
+            ip_list.append("sin informacion");
+        } else {
+            ip_list.append(element);
+        }
+    });
 
-            // Obtener el nombre de la máquina
-            let machineName = "";
-            if (stationType === "Sin información" || stationID === "Sin información") {
-                machineName = "Sin información";
-            } else {
-                machineName = `${stationType}-${stationID}`;
-            }
-
-            // Obtener la IP completa o "Sin información" si el campo está vacío
-            let fullIP = "";
-            if (
-                stationIPInputRaw && stationIPInputRaw.trim() !== "" &&
-                stationType !== "Sin información"
-            ) {
-                const baseIP = getBaseIP(stationTypeRaw.trim()); // Obtenemos el base IP según el tipo de estación
-                fullIP = baseIP + stationIPInputRaw;
-            } else {
-                fullIP = "Sin información";
-            }
-
-            stationTypes.push(stationType);
-            machineNames.push(machineName);
-            ips.push(fullIP);
-        });
-    } else {
-        // Si no hay estaciones, dejar los campos vacíos o con "Sin información"
-        stationTypes.push("Sin información");
-        machineNames.push("Sin información");
-        ips.push("Sin información");
-    }
 
     // Unir los valores de las estaciones, separados por coma
     const stationTypesStr = stationTypes.join(", ");

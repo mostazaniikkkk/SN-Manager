@@ -10,21 +10,19 @@ class StationManager extends Autoincremental {
             </select> -
             <input type="text" name="hostname" id="hostname" placeholder="Ingrese el nombre de la estacion">
             <button id="copy-hostname-button-" class="copy-button">Copiar</button> <br>
-            <select name="ip-start" id="ip-start">
-                <option value="164.96">164.96</option>
-                <option value="10.20">10.20</option>
-            </select>
+            <label id="ip-prefix"></label>
             <input type="text" name="ip-end" id="ip-end" placeholder="Ingrese la direccion IP de la estacion">
             <button id="copy-ip-button-" class="copy-button">Copiar</button> <br>
         `;
 
         const idContainer = "station";
-        const listenedElements = ["stations", "hostname", "ip-start", "ip-end"];
+        const listenedElements = ["stations", "hostname", "ip-end"];
 
         super(idContainer, elementHTML, listenedElements);
 
         this.stations = [];
         this.ips = [];
+        this.stationTypes = [];
 
         this.generateTemplate();
         this.updateInitialData(); // Llamar a updateInitialData después de inicializar la vista
@@ -45,22 +43,35 @@ class StationManager extends Autoincremental {
     updateStationList() {
         this.stations = [];
         this.ips = [];
+        this.stationTypes = [];
         const stationData = this._data["stations"];
         const hostnameData = this._data["hostname"];
-        const ipStartData = this._data["ip-start"];
         const ipEndData = this._data["ip-end"];
     
-        if (!stationData || !hostnameData || !ipStartData || !ipEndData) {
+        if (!stationData || !hostnameData || !ipEndData) {
             return;
         }
     
         for (let i = 0; i < stationData.length; i++) {
             const station = stationData[i].value;
             const hostname = hostnameData[i].value; // Convertir a mayúsculas
-            const ipStart = ipStartData[i].value;
             const ipEnd = ipEndData[i].value;
+            let ipStart = "164.96"; // Valor por defecto
+
+            // Asignar automáticamente el prefijo de la IP según el tipo de estación
+            if (station === "ter" || station === "con") {
+                ipStart = "10.90";
+            }
+
             this.stations.push(`${station.toUpperCase()}-${hostname}`); // Eliminar espacios alrededor del guion
             this.ips.push(`${ipStart}.${ipEnd}`);
+            this.stationTypes.push(station.toUpperCase());
+
+            // Actualizar el contenido del h4 con el prefijo de la IP
+            const ipPrefixElement = document.getElementById("ip-prefix");
+            if (ipPrefixElement) {
+                ipPrefixElement.textContent = `${ipStart}`;
+            }
         }
     }
 
@@ -121,5 +132,5 @@ addElement(
 
 // Inicializar la clase después de que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-    new StationManager();
-  });
+    let stations = new StationManager();
+});
