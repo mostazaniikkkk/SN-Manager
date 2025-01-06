@@ -1,10 +1,13 @@
 function getClientMail(){
     const ticket = document.getElementById("ticket").value;
     
-    return `Buenos días estimado, 
-Según documento adjunto, se genera número de ticket ${ticket}, por favor revisar.
-    
-Saludos cordiales.`;
+    return `
+Estimado/a funcionario/a 
+Se genera ticket ${ticket} para atención del inconveniente informado.
+Se adjuntan archivos solicitados en el correo
+
+Para consultar avances y/o estado de su reporte, favor comunicarse al número 229636200 
+Saluda Atte`;
 }
 
 function getInternalMail(){
