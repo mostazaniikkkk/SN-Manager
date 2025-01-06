@@ -7,7 +7,7 @@ Se genera ticket ${ticket} para atención del inconveniente informado.
 Se adjuntan archivos solicitados en el correo
 
 Para consultar avances y/o estado de su reporte, favor comunicarse al número 229636200 
-Saluda Atte`;
+Saluda Atte.`;
 }
 
 function getInternalMail(){
