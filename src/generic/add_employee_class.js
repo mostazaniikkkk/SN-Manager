@@ -5,14 +5,14 @@ class Employee{
             "employee-phone",
             "linea de contacto",
             '<div id="phone-container"></div>'
-        )
+        );
         
         //Gestor de correos
         addElement(
             "employee-email",
             "email",
             '<div id="email-container"></div>'
-        )
+        );
 
         //Nombre funcionario
         addElement(
@@ -20,21 +20,36 @@ class Employee{
             "nombre de funcionario",
             `<input type="text" name="nombre"  id="name" placeholder="Nombre del funcionario">
             <button class="API" hidden>Validar</button>`
-        )
+        );
 
         //Nombre funcionario
         addElement(
             "employee-username",
             "nombre de usuario",
-            `<input type="text" name="name" id="user" placeholder="Nombre de usuario">`
-        )
+            `<input type="text" name="user" id="user" placeholder="Nombre de usuario">`
+        );
 
         this.phones = new ContactManager("phone");
         this.emails = new EmailManager("email");
+        this.employee = "";
+        this.username = "";
+
+        const fullname = document.getElementById('name');
+        const user = document.getElementById('user');
+        
+        fullname.addEventListener('change', () => {
+            this.employee = fullname.value;
+        });
+
+        fullname.addEventListener('change', () => {
+            this.username = user.value;
+        });
     }
 }
 
 // Inicializar la clase después de que el DOM esté cargado
+let employee;
+
 document.addEventListener('DOMContentLoaded', () => {
-    let employee = new Employee();
+    employee = new Employee();
   });
