@@ -34,7 +34,7 @@ SOLICITO ACTIVAR LOS SIGUIENTES DOCUMENTOS. ADJUNTO ARCHIVO CON DATOS DE LOS DOC
 
 ${document.getElementById("data").value.replace(/(\r?\n){2,}/g, '\n').toUpperCase()}
 
-SALUDOS CORDIALES${signature}
+SALUDOS CORDIALES${signature.replace(/(\r?\n){2,}/g, '\n')}
 
 POR FAVOR ACTIVAR DOCUMENTOS SOLICITADOS. DE ANTEMANO QUEDO MUY AGRADECIDO POR LA GESTIÓN. `
 }
