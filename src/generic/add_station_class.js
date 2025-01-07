@@ -130,7 +130,9 @@ addElement(
     '<div id="station-container"></div>'
 )
 
+let stations;
+
 // Inicializar la clase después de que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-    let stations = new StationManager();
+    stations = new StationManager();
 });
