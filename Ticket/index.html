@@ -15,26 +15,40 @@
             <div class="col-6" id="station-manager-container"></div>
 
             <div class="col-6" id="employee-name-container"></div>
-            <div class="col-6" id="employee-username-container"></div>
             <div class="col-6" id="employee-email-container"></div>
             <div class="col-6" id="employee-phone-container"></div>
 
             <div class="col-6" id="branch-container"></div>
 
+            <div class="col-6" id="app-container"></div>
+
+            <div class="col-6">
+                <h5>(Opcional) Configuracion de Hardware</h5>
+                <label for="has-hardware">Incluir Hardware</label>
+                <input type="checkbox" name="has-hardware" id="has-hardware">
+                <div id="hardware-container" hidden></div>
+            </div>
+
+            <div class="col-6">
+                <h5>(Opcional) Incluir datos de ciudadano</h5>
+                <label for="has-citizen">Incluir ciudadano</label>
+                <input type="checkbox" name="has-citizen" id="has-citizen">
+                <div id="citizen-container" hidden></div>
+            </div>
+
+            <div class="col-12" id="problem-container"></div>
+
             <div class="col-6" id="prevent-container"></div>
             <div class="col-6" id="remote-container"></div>
-            <div class="col-6" id="group-container"></div>
-            <div class="col-6" id="app-container"></div>
-            <div class="col-12" id="problem-container"></div>
 
             <div class="col-12">
                 <p id="warning" hidden>Se recomienda instalar aplicativo para gestionar tickets de forma mas agil.</p>
                 <button hidden>Adjuntar archivo</button>
                 <button hidden>Subir Ticket</button>
-                <button onclick="copyToClipboard(get_ticket())">Copiar Ticket</button>
+                <button onclick="copyTicket()">Copiar Ticket</button>
                 <button onclick="copyToClipboard(get_ticket_title())">Copiar titulo</button>
-                <button>Copiar como correo</button>
-                <button>Copiar titulo del correo</button>
+                <button class="N2S">Copiar como correo</button>
+                <button class="N2S">Copiar titulo del correo</button>
             </div>
         </div>
     </div>
@@ -43,20 +57,25 @@
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/_webtool_controller.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/_capitalize.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/_add_element.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/_autoincremental.js"></script>
+    <script src="../src/_autoincremental.js"></script>
+    <script src="../src/_value_class.js"></script>
+    <script src="../src/_get_ticket.js"></script>
     
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_remote.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_prevent.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_problem.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_app.js"></script>
+    <script src="../src/generic/add_remote.js"></script>
+    <script src="../src/generic/add_prevent.js"></script>
+    <script src="../src/generic/add_problem.js"></script>
+    <script src="../src/generic/add_app.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_resolutor_group.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/add_branch_class.js"></script>
+    <script src="../src/generic/add_branch_class.js"></script>
     <script src="../src/generic/add_station_class.js"></script>
     <script src="../src/generic/add_employee_class.js"></script>
     
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/_add_phone.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/_add_email.js"></script>
+
+    <script src="../src/main_ticket/add_devices.js"></script>
+    <script src="../src/main_ticket/add_citizen.js"></script>
 
     <script src="script.js"></script>
 </body>

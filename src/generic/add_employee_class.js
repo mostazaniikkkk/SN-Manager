@@ -18,15 +18,9 @@ class Employee{
         addElement(
             "employee-name",
             "nombre de funcionario",
-            `<input type="text" name="nombre"  id="name" placeholder="Nombre del funcionario">
+            `<input type="text" name="nombre"  id="name" placeholder="Nombre del funcionario">  <br>
+            <input type="text" name="user" id="user" placeholder="Nombre de usuario">
             <button class="API" hidden>Validar</button>`
-        );
-
-        //Nombre funcionario
-        addElement(
-            "employee-username",
-            "nombre de usuario",
-            `<input type="text" name="user" id="user" placeholder="Nombre de usuario">`
         );
 
         this.phones = new ContactManager("phone");

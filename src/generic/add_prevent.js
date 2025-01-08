@@ -6,3 +6,5 @@ addElement(
         <option value="no">No</option>
     </select>`
 );
+
+let prevent = new Value("prevent");

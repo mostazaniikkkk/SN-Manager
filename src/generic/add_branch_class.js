@@ -112,8 +112,9 @@ class BranchManager {
       this._scheduleInput.hidden = !this._showMore;
   }
 }
+let branch;
 
 // Inicializar la clase después de que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-  let branch = new BranchManager();
+  branch = new BranchManager();
 });
