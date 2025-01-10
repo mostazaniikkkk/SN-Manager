@@ -48,3 +48,18 @@ function getMail() {
 }
 
 updateTextbox();
+
+let selector = document.getElementById('selector');
+
+selector.addEventListener("click", () => {
+    if(selector.checked){
+        document.getElementById('mail').hidden = true;
+        document.getElementById('exception').hidden = false;
+    } else {
+        document.getElementById('mail').hidden = false;
+        document.getElementById('exception').hidden = true;
+    }
+})
+
+document.getElementById('mail').hidden = false;
+document.getElementById('exception').hidden = true;
