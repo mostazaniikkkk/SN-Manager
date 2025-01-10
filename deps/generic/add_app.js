@@ -21,3 +21,5 @@ addElement(
 );
 
 let app = new Value("tax");
+let action = new Value("action");
+let resolutor = new Value("resolutor");

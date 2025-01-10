@@ -10,7 +10,13 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12"><h3>Ticket:</h3></div>
+            <div class="col-12">
+                <h3>Ticket:</h3>
+                <div hidden>
+                    <input type="checkbox" name="official-letter" id="official-letter">
+                    <label for="official-letter">Generacion de oficios</label>
+                </div>
+            </div>
 
             <div class="col-6" id="station-manager-container"></div>
 
@@ -47,8 +53,10 @@
                 <button hidden>Subir Ticket</button>
                 <button onclick="copyTicket()">Copiar Ticket</button>
                 <button onclick="copyToClipboard(get_ticket_title())">Copiar titulo</button>
-                <button class="N2S">Copiar como correo</button>
-                <button class="N2S">Copiar titulo del correo</button>
+                <button class="N2S" hidden>Copiar como correo</button>
+                <button class="N2S" hidden>Copiar titulo del correo</button>
+                <button>Limpiar ticket</button>
+                <button>Limpiar plantillla</button>
             </div>
         </div>
     </div>
@@ -71,7 +79,7 @@
     <script src="../src/generic/add_station_class.js"></script>
     <script src="../src/generic/add_employee_class.js"></script>
     
-    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/_add_phone.js"></script>
+    <script src="../src/generic/_add_phone.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/src/generic/_add_email.js"></script>
 
     <script src="../src/main_ticket/add_devices.js"></script>
