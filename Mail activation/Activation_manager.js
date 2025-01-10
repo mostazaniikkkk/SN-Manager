@@ -30,10 +30,12 @@ Saludos Cordiales.`
 function generateEmail() {
     const header = document.getElementById('header').value.toUpperCase();   
     let signature = document.getElementById('signature').value.toUpperCase();
+    const type = document.getElementById('type').value.toUpperCase();
+
     signature = signature !== "" ? `, \n${signature}` : '.' 
 
-    return `${header !== "" ? header + '\n\n' : ""}ESTIMADOS,
-SOLICITO ACTIVAR LOS SIGUIENTES DOCUMENTOS. ADJUNTO ARCHIVO CON DATOS DE LOS DOCUMENTOS DE IDENTIDAD. 
+    return `${header !== "" ? header + '\n\n' : ""}ESTIMADO(A),
+SE SOLICITA ${type} PARA FUNCIONARIO(A) QUE SE INDICA EN PLANILLA ADJUNTA.
 
 ${document.getElementById("data").value.replace(/(\r?\n){2,}/g, '\n').toUpperCase()}
 
