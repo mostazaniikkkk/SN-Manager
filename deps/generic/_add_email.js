@@ -9,7 +9,7 @@ class EmailManager extends Autoincremental {
                 <option value="nuevosidiv.registrocivil.cl">nuevosidiv.registrocivil.cl</option>
                 <option value="minrel.gob.cl">minrel.gob.cl</option>
             </select>
-            <button id="copy-button-" class="copy-button">Copiar</button>
+            <button id="copy-button-" class="copy-button">Copiar 📋</button>
         `;
 
         const listenedElements = ["email-user", "email-domain"];

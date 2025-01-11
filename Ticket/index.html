@@ -6,6 +6,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Tickets - SN Manager</title>
     <link rel="icon" href="https://mostazaniikkkk.github.io/SN-Manager/Delete%20CheckID.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div class="container">
@@ -47,16 +48,16 @@
             <div class="col-6" id="prevent-container"></div>
             <div class="col-6" id="remote-container"></div>
 
-            <div class="col-12">
+            <div class="col-12" style="margin-bottom: 10px; margin-top: 5px;">
                 <p id="warning" hidden>Se recomienda instalar aplicativo para gestionar tickets de forma mas agil.</p>
                 <button hidden>Adjuntar archivo</button>
                 <button hidden>Subir Ticket</button>
-                <button onclick="copyTicket()">Copiar Ticket</button>
-                <button onclick="copyToClipboard(get_ticket_title())">Copiar titulo</button>
+                <button class="copy-button" onclick="copyTicket()">Copiar Ticket 📋</button>
+                <button class="copy-button" onclick="copyToClipboard(get_ticket_title())">Copiar titulo 📋</button>
                 <button class="N2S" hidden>Copiar como correo</button>
                 <button class="N2S" hidden>Copiar titulo del correo</button>
-                <button>Limpiar ticket</button>
-                <button>Limpiar plantillla</button>
+                <button>Limpiar ticket 🧹</button>
+                <button>Limpiar plantillla 🧹</button>
             </div>
         </div>
     </div>

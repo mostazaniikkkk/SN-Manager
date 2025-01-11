@@ -29,8 +29,8 @@ class Autoincremental {
         const buttonsContainer = document.createElement('div');
         buttonsContainer.className = `${this._idContainer}-buttons`;
         buttonsContainer.innerHTML = `
-            <button id="+${this._idContainer}">+</button>
-            <button id="--${this._idContainer}">-</button>
+            <button id="+${this._idContainer}" class="plus">+</button>
+            <button id="--${this._idContainer}" class="minus">-</button>
         `;
 
         // Agregar el div de botones al contenedor principal

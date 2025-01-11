@@ -12,7 +12,7 @@ class StationManager extends Autoincremental {
             <button id="copy-hostname-button-" class="copy-button">Copiar</button> <br>
             <label id="ip-prefix"></label>
             <input type="text" name="ip-end" id="ip-end" placeholder="Ingrese la direccion IP de la estacion">
-            <button id="copy-ip-button-" class="copy-button">Copiar</button> <br>
+            <button id="copy-ip-button-" class="copy-button">Copiar 📋</button> <br>
         `;
 
         const idContainer = "station";

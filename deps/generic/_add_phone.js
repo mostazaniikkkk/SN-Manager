@@ -8,7 +8,7 @@ class ContactManager extends Autoincremental {
                 <option value="Anexo ">Anexo</option>
             </select>
             <input type="phone" name="phone-${idContainer}" id="phone-${idContainer}" placeholder="Numero de linea">
-            <button id="copy-button-${idContainer}" class="copy-button">Copiar</button>
+            <button id="copy-button-${idContainer}" class="copy-button">Copiar 📋</button>
         `;
 
         const listenedElements = [`phone-id-${idContainer}`, `phone-${idContainer}`, `copy-button-${idContainer}`];

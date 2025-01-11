@@ -6,6 +6,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Activación por Email - SN Manager</title>
     <link rel="icon" href="https://mostazaniikkkk.github.io/SN-Manager/Delete%20CheckID.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div class="container">
@@ -43,12 +44,12 @@
                     </div>
                     <div class="col-12" style="margin-top: 10px;">
                         <button hidden>Subir Ticket a Service-Now</button>
-                        <button onclick="copyToClipboard('Revisar - Activación de Documentos')">Copiar Título</button>
-                        <button onclick="copyToClipboard(generateEmail())">Generar cuerpo de ticket</button>
-                        <button onclick="copyToClipboard(getInternalMail())">Generar correo interno</button>
-                        <button onclick="copyToClipboard(getClientMail())">Generar respuesta</button>
-                        <button onclick="clearElements(ticket)">Limpiar Ticket</button>
-                        <button onclick="clearElements(page)">Limpiar plantilla</button>
+                        <button class="copy-button" onclick="copyToClipboard('Revisar - Activación de Documentos')">Copiar Título 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(generateEmail())">Generar cuerpo de ticket 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(getInternalMail())">Generar correo interno 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(getClientMail())">Generar respuesta 📋</button>
+                        <button onclick="clearElements(ticket)">Limpiar Ticket 🧹</button>
+                        <button onclick="clearElements(page)">Limpiar plantilla 🧹</button>
                     </div>
                 </div>
             </div>
@@ -72,8 +73,8 @@
                         <textarea id="contact-data" placeholder="(Opcional) Colocar datos de contacto con oficina de operaciones." style="width: 100%; height: 200px;"></textarea>
                     </div>
                     <div class="col-12" style="margin-top: 10px;">
-                        <button onclick="copyToClipboard(getMail())">Copiar correo</button>
-                        <button onclick="clean()">Limpiar plantilla</button>
+                        <button class="copy-button" onclick="copyToClipboard(getMail())">Copiar correo 📋</button>
+                        <button onclick="clean()">Limpiar plantilla 🧹</button>
                     </div>
                 </div>
             </div>
