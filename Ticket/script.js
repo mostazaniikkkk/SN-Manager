@@ -63,20 +63,19 @@ function generateCombinedString(hardwareManager, citizenManager) {
 }
 
 // Gestor de grupo resolutor
-document.getElementById('action').addEventListener("click", () => {
+document.getElementById('resolutor').addEventListener("click", () => {
     checkState();
 });
 
 function checkState() {
-    // Error: "array" no es una propiedad de los NodeList, usamos forEach de NodeList.prototype
-    document.querySelectorAll(".N2S").forEach(element => {
+    const elements = document.querySelectorAll(".N2S");
+    elements.forEach(element => {
         element.hidden = true;
     });
 
-    switch (resolutor.value) {
-        case 'N2 SRCEI':
-            document.querySelectorAll(".N2S").forEach(element => {
-                element.hidden = false;
-            });
+    if (resolutor.value === 'N2 SRCEI') {
+        elements.forEach(element => {
+            element.hidden = false;
+        });
     }
 }

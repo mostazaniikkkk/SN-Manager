@@ -48,14 +48,19 @@
             <div class="col-6" id="prevent-container"></div>
             <div class="col-6" id="remote-container"></div>
 
+            <div class="col-6 N2S" id="N2S-container" hidden>
+
+
+            </div>
+
             <div class="col-12" style="margin-bottom: 10px; margin-top: 5px;">
                 <p id="warning" hidden>Se recomienda instalar aplicativo para gestionar tickets de forma mas agil.</p>
                 <button hidden>Adjuntar archivo</button>
                 <button hidden>Subir Ticket</button>
                 <button class="copy-button" onclick="copyTicket()">Copiar Ticket 📋</button>
                 <button class="copy-button" onclick="copyToClipboard(get_ticket_title())">Copiar titulo 📋</button>
-                <button class="N2S" hidden>Copiar como correo</button>
-                <button class="N2S" hidden>Copiar titulo del correo</button>
+                <button class="N2S" onclick="copyToClipboard(getEmail())" hidden>Copiar como correo</button>
+                <button class="N2S" onclick="copyToClipboard(getEmailTitle())" hidden>Copiar titulo del correo</button>
                 <button>Limpiar ticket 🧹</button>
                 <button>Limpiar plantillla 🧹</button>
             </div>
@@ -85,6 +90,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/main_ticket/add_devices.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/main_ticket/add_citizen.js"></script>
+    <script src="../deps/_copy_email.js"></script>
 
     <script src="script.js"></script>
 </body>
