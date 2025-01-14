@@ -25,19 +25,9 @@ class Employee{
 
         this.phones = new ContactManager("phone");
         this.emails = new EmailManager("email");
-        this.employee = "";
-        this.username = "";
 
-        const fullname = document.getElementById('name');
-        const user = document.getElementById('user');
-        
-        fullname.addEventListener('change', () => {
-            this.employee = fullname.value;
-        });
-
-        fullname.addEventListener('change', () => {
-            this.username = user.value;
-        });
+        this.employee = new Value('name');
+        this.username = new Value('user');
     }
 }
 

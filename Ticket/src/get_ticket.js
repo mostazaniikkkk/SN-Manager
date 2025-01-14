@@ -8,13 +8,13 @@ function get_ticket(extraValues = null) {
 
     return `TIPO ESTACION:${stations.stationTypes}
 NOMBRE MAQUINA:${leghtFiler(stations.stations)}
-NOMBRE:${employee.employee}
+NOMBRE:${employee.employee.value}
 EMAIL:${emailFilter(employee.emails.emails)}
 FONO FIJO:${leghtFiler(branch._contactManager.phone)}
 CELULAR:${leghtFiler(employee.phones.phone)}
 OFICINA:${office}
 IP:${ipFilter(stations.ips)}
-CUENTA USUARIO:${employee.username}
+CUENTA USUARIO:${employee.username.value}
 APLICACIÓN CON PROBLEMA:${app.value}
 PROBLEMA:${problem.value}
 PRUEBAS DE LA MESA:${testString}

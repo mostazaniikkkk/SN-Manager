@@ -4,7 +4,8 @@ class Value{
     }
 
     _updateValue(){
-        return document.getElementById(this._id).value;
+        const value = document.getElementById(this._id).value;
+        return value ? value : '';
     }
 
     get value(){
