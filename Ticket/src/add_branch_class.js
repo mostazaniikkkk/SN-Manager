@@ -12,7 +12,7 @@ class BranchManager {
       "sucursal",
       `<select name="branch" id="branch">
           <option value="SRCeI">SRCeI</option>
-          <option value="SRCeI Atencion terreno">Atencion terreno</option>
+          <option value="SRCeI Dirección regional">Dirección regional</option>
           <option value="Consulado">Consulado</option>
           <option value="MinRel">MinRel</option>
         </select>
