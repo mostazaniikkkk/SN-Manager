@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Activación por Email - SN Manager</title>
+    <link rel="icon" href="https://mostazaniikkkk.github.io/SN-Manager/Delete%20CheckID.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Gestión de correos:</h3>
+                <input type="checkbox" name="selector" id="selector">
+                <label for="selector">Generar Excepción.</label>
+            </div>
+            <div class="col-12" id="mail">
+                <div class="row">
+                    <div class="col-12" id="create">
+                        <h5>Datos a validar:</h5>
+                        <select name="type" id="type">
+                            <option value="activar documentos">Activación de documentos</option>
+                            <option value="crear cuentas de usuario">Creación de cuentas</option>
+                            <option value="modificar cuentas de usuario">Modificación de cuentas</option>
+                            <option value="eliminar cuentas de usuario">Eliminación de cuentas</option>
+                        </select>
+    
+                        <textarea name="header" id="header" style="width: 100%; height: 50px;" placeholder="(Opcional) Cabecera del ticket para datos adicionales"></textarea>
+                        <textarea name="data" id="data" style="width: 100%; height: 200px;" placeholder="Ingrese los valores de cédula a activar"></textarea>
+                        <textarea name="signature" id="signature" style="width: 100%; height: 100px;" placeholder="(Opcional) Firma del funcionario."></textarea>
+                    </div>
+                    <div class="col-6">
+                        <h5>Número de ticket:</h5>
+                        <input type="text" name="ticket" id="ticket" placeholder="Ingrese el número de ticket de Service Now">
+                    </div>
+                    <div class="col-6">
+                        <h5>Ticket Externo-proveedor:</h5>
+                        <input type="text" name="extern" id="extern" placeholder="(Opcional) Ingrese el número de ticket externo">
+                    </div>
+                    <div class="col-12">
+                        <h6 id="counter"></h6>
+                    </div>
+                    <div class="col-12" style="margin-top: 10px;">
+                        <button hidden>Subir Ticket a Service-Now</button>
+                        <button class="copy-button" onclick="copyToClipboard('Revisar - Activación de Documentos')">Copiar Título 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(generateEmail())">Generar cuerpo de ticket 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(getInternalMail())">Generar correo interno 📋</button>
+                        <button class="copy-button" onclick="copyToClipboard(getClientMail())">Generar respuesta 📋</button>
+                        <button onclick="clearElements(ticket)">Limpiar Ticket 🧹</button>
+                        <button onclick="clearElements(page)">Limpiar plantilla 🧹</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" id="exception">
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Nombre funcionario</h5>
+                        <input type="text" id="name" placeholder="(Opcional) Nombre del funcionario">
+                    </div>
+                    <div class="col-6">
+                        <h5>Tipo de excepción</h5>
+                        <select name="error-type" id="error-type">
+                            <option value="password">Contraseña</option>
+                            <option value="forbidden">No autorizado</option>
+                            <option value="massive-office">Tratamiento de oficios masivos</option>
+                            <option value="not-extra-file">Sin documento adjunto</option>
+                        </select>
+                    </div>
+                    <div class="col-12" id="contact-container" hidden>
+                        <h5>Contacto</h5>
+                        <textarea id="contact-data" placeholder="(Opcional) Colocar datos de contacto con oficina de operaciones." style="width: 100%; height: 200px;"></textarea>
+                    </div>
+                    <div class="col-12" style="margin-top: 10px;">
+                        <button class="copy-button" onclick="copyToClipboard(getMail())">Copiar correo 📋</button>
+                        <button onclick="clean()">Limpiar plantilla 🧹</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/Activation_manager.js"></script>
+    <script src="script.js"></script>
+    <script src="src/_clear.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_copytoclipboard.js"></script>
+</body>
+</html>

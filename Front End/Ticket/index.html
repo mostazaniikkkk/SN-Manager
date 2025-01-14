@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Tickets - SN Manager</title>
+    <link rel="icon" href="https://mostazaniikkkk.github.io/SN-Manager/Delete%20CheckID.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Ticket:</h3>
+                <div hidden>
+                    <input type="checkbox" name="official-letter" id="official-letter">
+                    <label for="official-letter">Generacion de oficios</label>
+                </div>
+            </div>
+
+            <div class="col-6" id="station-manager-container"></div>
+
+            <div class="col-6" id="employee-name-container"></div>
+            <div class="col-6" id="employee-email-container"></div>
+            <div class="col-6" id="employee-phone-container"></div>
+
+            <div class="col-6" id="branch-container"></div>
+
+            <div class="col-6" id="app-container"></div>
+
+            <div class="col-6">
+                <h5>(Opcional) Configuracion de Hardware</h5>
+                <label for="has-hardware">Incluir Hardware</label>
+                <input type="checkbox" name="has-hardware" id="has-hardware">
+                <div id="hardware-container" hidden></div>
+            </div>
+
+            <div class="col-6">
+                <h5>(Opcional) Incluir datos de ciudadano</h5>
+                <label for="has-citizen">Incluir ciudadano</label>
+                <input type="checkbox" name="has-citizen" id="has-citizen">
+                <div id="citizen-container" hidden></div>
+            </div>
+
+            <div class="col-12" id="problem-container"></div>
+
+            <div class="col-6" id="prevent-container"></div>
+            <div class="col-6" id="remote-container"></div>
+
+            <div class="col-6 N2S" id="N2S-container" hidden>
+
+
+            </div>
+
+            <div class="col-12" style="margin-bottom: 10px; margin-top: 5px;">
+                <p id="warning" hidden>Se recomienda instalar aplicativo para gestionar tickets de forma mas agil.</p>
+                <button hidden>Adjuntar archivo</button>
+                <button hidden>Subir Ticket</button>
+                <button class="copy-button" onclick="copyTicket()">Copiar Ticket 📋</button>
+                <button class="copy-button" onclick="copyToClipboard(get_ticket_title())">Copiar titulo 📋</button>
+                <button class="N2S" onclick="copyToClipboard(getEmail())" hidden>Copiar como correo</button>
+                <button class="N2S" onclick="copyToClipboard(getEmailTitle())" hidden>Copiar titulo del correo</button>
+                <button>Limpiar ticket 🧹</button>
+                <button>Limpiar plantillla 🧹</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_copytoclipboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_webtool_controller.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_capitalize.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_add_element.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_autoincremental.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mostazaniikkkk/SN-Manager@webtool/deps/_value_class.js"></script>
+    
+    <script src="src/add_remote.js"></script>
+    <script src="src/add_prevent.js"></script>
+    <script src="src/add_problem.js"></script>
+    <script src="src/add_app.js"></script>
+
+    <script src="src/add_branch_class.js"></script>
+    <script src="src/add_station_class.js"></script>
+    <script src="src/add_employee_class.js"></script>
+    
+    <script src="src/_add_phone.js"></script>
+    <script src="src/_add_email.js"></script>
+
+    <script src="src/add_devices.js"></script>
+    <script src="src/add_citizen.js"></script>
+
+    <script src="src/get_ticket.js"></script>
+    <script src="src/get_email.js"></script>
+    <script src="src/add_n2_srcei.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
