@@ -8,7 +8,7 @@ function getEmail(){
     return `• Ticket Service Now: ${capitalize(ticket_No.value)}
 • Servicio: ${capitalize(app.value)}
 • Oficina: ${branch.selectedBranch} ${capitalize(branch.customBranchName)}
-• Nombre Funcionario: ${capitalize(employee.fullname)}
+• Nombre Funcionario: ${capitalize(employee.fullname.value)}
 • Correo: ${employee.emails.emails}
 • Estación: ${stations.stations} 
 • Número de Contacto Respaldo:  ${employee.phones.phone[0]}
