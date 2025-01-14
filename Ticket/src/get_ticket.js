@@ -8,7 +8,7 @@ function get_ticket(extraValues = null) {
 
     return `TIPO ESTACION:${stations.stationTypes}
 NOMBRE MAQUINA:${leghtFiler(stations.stations)}
-NOMBRE:${employee.employee.value}
+NOMBRE:${employee.employee}
 EMAIL:${emailFilter(employee.emails.emails)}
 FONO FIJO:${leghtFiler(branch._contactManager.phone)}
 CELULAR:${leghtFiler(employee.phones.phone)}

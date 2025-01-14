@@ -1,7 +1,6 @@
-function capitalize(word){
-    try{
+function capitalize(word = ""){
+    if(word){
         return word.charAt(0).toUpperCase()+word.slice(1);
-    } catch {
-        return '';
     }
+    return ''
 }
